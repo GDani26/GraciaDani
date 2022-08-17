@@ -1,0 +1,21 @@
+def calPoints(ops: list) -> int:
+    result = []
+    for score in ops:
+        if score == 'C':
+            result.pop()
+        elif score == '+':
+            result.append(result[-1] + result[-2])
+        elif score == 'D':
+            result.append(result[-1] * 2)
+        else:
+            result.append(int(score))
+    return sum(result)
+
+test1 = ['5', '2', 'C', 'D', '+']
+print(calPoints(test1))
+
+test2 = ['5', '-2', '4', 'C', 'D', '9', '+', '+']
+print(calPoints(test2))
+
+test3 = ['1']
+print(calPoints(test3))
